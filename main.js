@@ -1,5 +1,7 @@
 const form = document.getElementById('form-agenda');
+
 var linhas = "";
+
 form.addEventListener('submit',function(e) {
     e.preventDefault();
 
@@ -12,9 +14,12 @@ form.addEventListener('submit',function(e) {
     linha    += `<td>${(typeof inputNomeContato.value) == "string" ? 'Salvo' : 'Não salvo'}</td>`;
     linha    += '</tr>';
 
-    linhas+= linha;
-    const corpoTabela = document.querySelector('tbody');
+    linhas   += linha;
 
-    corpoTabela.innerHTML = linhas;
+    const corpoTabela        = document.querySelector('tbody');
 
+    corpoTabela.innerHTML    = linhas;
+
+    inputNomeContato.value   = '';
+    inputNumeroContato.value = '';
 });
